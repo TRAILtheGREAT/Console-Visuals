@@ -145,6 +145,7 @@
     <ClInclude Include="Pixel.h" />
     <ClInclude Include="SmallSprite.h" />
     <ClInclude Include="Sprite.h" />
+    <ClInclude Include="SpriteSheet.h" />
     <ClInclude Include="ThinPixel.h" />
     <ClInclude Include="ThinSprite.h" />
   </ItemGroup>

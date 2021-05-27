@@ -6,14 +6,25 @@
 #include "ThinPixel.h"
 #include "ThinSprite.h"
 #include "SmallSprite.h"
+#include "SpriteSheet.h"
 
 int main()
 {
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
-    SmallSprite s = SmallSprite("alien_forground.txt");
-    
-    s.printAtLocation(0, 0);
+    SpriteSheet s = SpriteSheet(3, 0, 0);
+    Sprite sprite = Sprite();
+    s.addSprite(sprite);
+    sprite = Sprite("alien_forground.txt");
+    s.addSprite(sprite);
+    sprite = Sprite("alien_background.txt");
+    s.addSprite(sprite);
+
+    s.printSprite(0);
+    Sleep(1000);
+    s.printSprite(1);
+    Sleep(1000);
+    s.printSprite(2);
 
     SetConsoleTextAttribute(hConsole, 7);
 }
@@ -43,12 +54,12 @@ int main()
 * 7 = Dull White
 * 8 = Grey
 * 9 = Navy Blue
-* 10 = Bright Green
-* 11 = Baby Blue
-* 12 = Flesh
-* 13 = Magenta
-* 14 = Dull Yellow
-* 15 = Bright White
+* a = Bright Green
+* b = Baby Blue
+* c = Flesh
+* d = Magenta
+* e = Dull Yellow
+* f = Bright White
 * 
 * I hate this. c++ is a garbage language. burn it all. Java for life
 */
