@@ -47,7 +47,7 @@ int main()
 * 
 * SpriteSheet = an array of sprites that can be easily interchanged by a public method call
 * 
-* AnimatedSpriteSheet = a sprite sheet that is automatically animated in a seperate thread *stretch goal* !not yet implimented!
+* AnimatedSpriteSheet = a sprite sheet that is automatically animated in a seperate thread !not yet implimented!
 * 
 * 
 * COLORS:
@@ -67,6 +67,4 @@ int main()
 * d = Magenta
 * e = Dull Yellow
 * f = Bright White
-* 
-* I hate this. c++ is a garbage language. burn it all. Java for life
 */
