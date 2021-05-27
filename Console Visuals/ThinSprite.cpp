@@ -1,6 +1,5 @@
-//#include "Sprite.h"
-
-Sprite::Sprite()
+//#include "ThinSprite.h"
+ThinSprite::ThinSprite()
 {
 	rows_ = 2;
 	cols_ = 2;
@@ -16,52 +15,11 @@ Sprite::Sprite()
 	{
 		for (int c = 0; c < cols_; c++)
 		{
-			pixels_[r][c] = Pixel(13, 0, '%');
+			pixels_[r][c] = ThinPixel(13, 0, '%');
 		}
 	}
 }
-Sprite::Sprite(std::string forgroundColorFile)
-{
-	rows_ = 0;
-	cols_ = 0;
-	
-	std::ifstream fileIn;
-	fileIn.open(forgroundColorFile);
-	std::string line = "";
-	if (fileIn.is_open())
-	{
-		while (std::getline(fileIn, line))//get the number of rows
-		{
-			rows_++;
-			if (line.length() > cols_) cols_ = line.length();
-		}
-		fileIn.close();
-		fileIn.open(forgroundColorFile);//open the file again
-		pixels_ = new Pixel*[rows_];//initialize an array of arrays
-		int r = 0;
-		while (std::getline(fileIn, line))
-		{
-			if (r > rows_)
-			{
-				std::cout << "!error in Sprite::Sprite(std::string forgroundColorFile)!";
-				break;
-			}
-			pixels_[r] = new Pixel[cols_];//initialize each array in the array of arrays
-			for (int c = 0; c < line.size(); c++)
-			{
-				if (c > cols_)
-				{
-					std::cout << "!error in Sprite::Sprite(std::string forgroundColorFile)!";
-					break;
-				}
-				pixels_[r][c] = Pixel(hexToDec(line[c]), (char)219);
-			}
-			r++;
-		}
-	}
-
-}
-Sprite::Sprite(std::string forgroundColorFile, std::string backgroundColorFile, std::string characterFile)
+ThinSprite::ThinSprite(std::string forgroundColorFile)
 {
 	rows_ = 0;
 	cols_ = 0;
@@ -95,7 +53,47 @@ Sprite::Sprite(std::string forgroundColorFile, std::string backgroundColorFile, 
 					std::cout << "!error in Sprite::Sprite(std::string forgroundColorFile)!";
 					break;
 				}
-				pixels_[r][c] = Pixel(hexToDec(line[c]), (char)219);
+				pixels_[r][c] = ThinPixel(hexToDec(line[c]), (char)219);
+			}
+			r++;
+		}
+	}
+}
+ThinSprite::ThinSprite(std::string forgroundColorFile, std::string backgroundColorFile, std::string characterFile)
+{
+	rows_ = 0;
+	cols_ = 0;
+	//pixels_ = new Pixel * [1];
+	std::ifstream fileIn;
+	fileIn.open(forgroundColorFile);
+	std::string line = "";
+	if (fileIn.is_open())
+	{
+		while (std::getline(fileIn, line))//get the number of rows
+		{
+			rows_++;
+			if (line.length() > cols_) cols_ = line.length();
+		}
+		fileIn.close();
+		fileIn.open(forgroundColorFile);//open the file again
+		pixels_ = new Pixel * [rows_];//initialize an array of arrays
+		int r = 0;
+		while (std::getline(fileIn, line))
+		{
+			if (r > rows_)
+			{
+				std::cout << "!error in Sprite::Sprite(std::string forgroundColorFile)!";
+				break;
+			}
+			pixels_[r] = new Pixel[cols_];//initialize each array in the array of arrays
+			for (int c = 0; c < line.size(); c++)
+			{
+				if (c > cols_)
+				{
+					std::cout << "!error in Sprite::Sprite(std::string forgroundColorFile)!";
+					break;
+				}
+				pixels_[r][c] = ThinPixel(hexToDec(line[c]), (char)219);
 			}
 			r++;
 		}
@@ -150,11 +148,11 @@ Sprite::Sprite(std::string forgroundColorFile, std::string backgroundColorFile, 
 				}
 			}
 		}
-		
+
 	}
 }
 
-void Sprite::printAtLocation(int horizontalLocation, int verticalLocation)
+void ThinSprite::printAtLocation(int horizontalLocation, int verticalLocation)
 {
 	COORD coord = { horizontalLocation, verticalLocation };
 
@@ -163,26 +161,9 @@ void Sprite::printAtLocation(int horizontalLocation, int verticalLocation)
 		SetConsoleCursorPosition(hConsole_, coord);
 		for (int c = 0; c < cols_; c++)
 		{
+			
 			pixels_[r][c].printPixel();
 		}
 		coord.Y++;
 	}
-}
-
-int Sprite::hexToDec(char colorHex)
-{
-	int decimal = -1;
-	if (48 <= (int)colorHex && (int)colorHex <= 57)
-	{
-		decimal = (int)colorHex - 48;
-	}
-	else if (65 <= (int)colorHex && (int)colorHex <= 70)
-	{
-		decimal = (int)colorHex - 55;
-	}
-	else if (97 <= (int)colorHex && (int)colorHex <= 102)
-	{
-		decimal = (int)colorHex - 87;
-	}
-	return decimal;
 }

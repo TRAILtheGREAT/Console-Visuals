@@ -3,12 +3,28 @@
 class ThinPixel : public Pixel
 {
 public:
-	ThinPixel();
-	ThinPixel(char character);
-	ThinPixel(int color, char character);
-	ThinPixel(int frontColor, int backColor, char character);
+	ThinPixel() : Pixel()
+	{
 
-	void printPixel();
+	}
+	ThinPixel(char character) : Pixel(character)
+	{
+
+	}
+	ThinPixel(int color, char character) : Pixel(color, character)
+	{
+
+	}
+	ThinPixel(int frontColor, int backColor, char character) : Pixel(frontColor, backColor, character)
+	{
+
+	}
+
+	void printPixel()
+	{
+		SetConsoleTextAttribute(hConsole_, (int)combineColors(frontColor_, backColor_));
+		std::cout << character_;
+	}
 };
 
 /*

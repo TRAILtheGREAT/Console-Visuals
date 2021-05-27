@@ -1,4 +1,4 @@
-#include "Pixel.h"
+//#include "Pixel.h"
 Pixel::Pixel()
 {
 	frontColor_ = 13;

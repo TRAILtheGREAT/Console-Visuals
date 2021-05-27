@@ -1,4 +1,4 @@
-#include "ThinPixel.h"
+//#include "ThinPixel.h"
 ThinPixel::ThinPixel() : Pixel()
 {
 
