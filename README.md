@@ -83,6 +83,5 @@ The following is an example of a character file
 43,184,43,43
 43,43,184,43
 43,43,43,184
-
 ```
 This represents a 4x4 sprite. Each number is an [extended ascii](https://theasciicode.com.ar/) code and will be displayed in the order and orientation that is writen in the text file. Ensure that all the files for the same sprite are the same dimentions as using files of different size is likely to cause runtime errors.
