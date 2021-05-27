@@ -10,12 +10,10 @@ int main()
 {
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
-    //ThinSprite t = ThinSprite();
+    ThinSprite t = ThinSprite("alien_forground.txt");
 
-    //t.printAtLocation(0, 0);
-    Pixel p = ThinPixel();
-
-    p.printPixel();
+    t.printAtLocation(0, 0);
+    
 
     SetConsoleTextAttribute(hConsole, 7);
 }

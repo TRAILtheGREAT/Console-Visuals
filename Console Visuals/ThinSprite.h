@@ -10,17 +10,17 @@ public:
 		cols_ = 2;
 
 		//creating a dynamic array
-		pixels_ = new Pixel * [rows_];
+		pixels_ = new Pixel ** [rows_];
 		for (int i = 0; i < rows_; i++)
 		{
-			pixels_[i] = new Pixel[cols_];
+			pixels_[i] = new Pixel*[cols_];
 		}
 		//filling the array with pixels
 		for (int r = 0; r < rows_; r++)
 		{
 			for (int c = 0; c < cols_; c++)
 			{
-				pixels_[r][c] = ThinPixel(13, 0, '%');
+				pixels_[r][c] = new ThinPixel(13, 0, '%');
 			}
 		}
 	}
@@ -41,7 +41,7 @@ public:
 			}
 			fileIn.close();
 			fileIn.open(forgroundColorFile);//open the file again
-			pixels_ = new Pixel * [rows_];//initialize an array of arrays
+			pixels_ = new Pixel ** [rows_];//initialize an array of arrays
 			int r = 0;
 			while (std::getline(fileIn, line))
 			{
@@ -50,7 +50,7 @@ public:
 					std::cout << "!error in Sprite::Sprite(std::string forgroundColorFile)!";
 					break;
 				}
-				pixels_[r] = new Pixel[cols_];//initialize each array in the array of arrays
+				pixels_[r] = new Pixel*[cols_];//initialize each array in the array of arrays
 				for (int c = 0; c < line.size(); c++)
 				{
 					if (c > cols_)
@@ -58,7 +58,7 @@ public:
 						std::cout << "!error in Sprite::Sprite(std::string forgroundColorFile)!";
 						break;
 					}
-					pixels_[r][c] = ThinPixel(hexToDec(line[c]), (char)219);
+					pixels_[r][c] = new ThinPixel(hexToDec(line[c]), (char)219);
 				}
 				r++;
 			}
@@ -81,7 +81,7 @@ public:
 			}
 			fileIn.close();
 			fileIn.open(forgroundColorFile);//open the file again
-			pixels_ = new Pixel * [rows_];//initialize an array of arrays
+			pixels_ = new Pixel ** [rows_];//initialize an array of arrays
 			int r = 0;
 			while (std::getline(fileIn, line))
 			{
@@ -90,7 +90,7 @@ public:
 					std::cout << "!error in Sprite::Sprite(std::string forgroundColorFile)!";
 					break;
 				}
-				pixels_[r] = new Pixel[cols_];//initialize each array in the array of arrays
+				pixels_[r] = new Pixel*[cols_];//initialize each array in the array of arrays
 				for (int c = 0; c < line.size(); c++)
 				{
 					if (c > cols_)
@@ -98,7 +98,7 @@ public:
 						std::cout << "!error in Sprite::Sprite(std::string forgroundColorFile)!";
 						break;
 					}
-					pixels_[r][c] = ThinPixel(hexToDec(line[c]), (char)219);
+					pixels_[r][c] = new ThinPixel(hexToDec(line[c]), (char)219);
 				}
 				r++;
 			}
@@ -113,7 +113,7 @@ public:
 			{
 				for (int c = 0; c < cols_; c++)
 				{
-					pixels_[r][c].setBackColor(hexToDec(line[c]));
+					pixels_[r][c]->setBackColor(hexToDec(line[c]));
 					if (c > cols_)
 					{
 						std::cout << "backgroundColorFile \"" + backgroundColorFile + "\" has to many characters at row " << r;
@@ -145,11 +145,11 @@ public:
 				{
 					if (c < cols_ - 1 && std::getline(fileIn, line, ','))//if its not the last character, delimit by commas
 					{
-						pixels_[r][c].setCharacter((char)std::stoi(line));
+						pixels_[r][c]->setCharacter((char)std::stoi(line));
 					}
 					else if (std::getline(fileIn, line, '\n'))//if its the last character, delimit by newline
 					{
-						pixels_[r][c].setCharacter((char)std::stoi(line));
+						pixels_[r][c]->setCharacter((char)std::stoi(line));
 					}
 				}
 			}
