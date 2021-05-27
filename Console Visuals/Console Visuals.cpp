@@ -5,15 +5,15 @@
 #include "Sprite.h"
 #include "ThinPixel.h"
 #include "ThinSprite.h"
+#include "SmallSprite.h"
 
 int main()
 {
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
-    ThinSprite t = ThinSprite("alien_forground.txt");
-
-    t.printAtLocation(0, 0);
+    SmallSprite s = SmallSprite("alien_forground.txt");
     
+    s.printAtLocation(0, 0);
 
     SetConsoleTextAttribute(hConsole, 7);
 }

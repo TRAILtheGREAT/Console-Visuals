@@ -32,6 +32,9 @@
     <ClInclude Include="ThinSprite.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SmallSprite.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="alien_forground.txt">

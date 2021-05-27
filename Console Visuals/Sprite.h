@@ -168,7 +168,7 @@ public:
 		}
 	}
 
-	void printAtLocation(int horizontalLocation, int verticalLocation)
+	virtual void printAtLocation(int horizontalLocation, int verticalLocation)
 	{
 		COORD coord = { horizontalLocation, verticalLocation };
 
