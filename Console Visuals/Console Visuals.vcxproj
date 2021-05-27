@@ -142,10 +142,12 @@
     <ClCompile Include="Console Visuals.cpp" />
     <ClCompile Include="Pixel.cpp" />
     <ClCompile Include="Sprite.cpp" />
+    <ClCompile Include="ThinPixel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Pixel.h" />
     <ClInclude Include="Sprite.h" />
+    <ClInclude Include="ThinPixel.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="alien_characters.txt" />

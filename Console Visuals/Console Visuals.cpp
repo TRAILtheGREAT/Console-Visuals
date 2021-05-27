@@ -3,16 +3,15 @@
 
 #include <iostream>
 #include "Sprite.h"
+#include "ThinPixel.h"
 
 int main()
 {
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
-    Pixel p = Pixel();
+    ThinPixel t = ThinPixel();
 
-    Sprite s = Sprite("alien_forground.txt", "alien_background.txt", "alien_characters.txt");
-
-    s.printAtLocation(0, 0);
+    t.printPixel();
 
     SetConsoleTextAttribute(hConsole, 7);
 }
@@ -27,7 +26,8 @@ int main()
 * LocatedSprite = wrapper that stores a pointer to sprite object and a set of coordinates, allows a sprite to be packeged with coordinates
 * 
 * SpriteSheet = an array of sprites that can be easily interchanged by a public method call
-* AnimatedSpriteSheet = a sprite sheet that is automatically animated in a seperate thread *stretch
+* 
+* AnimatedSpriteSheet = a sprite sheet that is automatically animated in a seperate thread *stretch goal
 * 
 * 
 * COLORS:

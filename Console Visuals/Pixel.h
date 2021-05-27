@@ -4,7 +4,7 @@
 
 class Pixel
 {
-private:
+protected:
 	char character_;
 	int frontColor_;
 	int backColor_;
