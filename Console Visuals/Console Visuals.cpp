@@ -1,29 +1,37 @@
-// Console Visuals.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+/*
+* this file is not required for the execution of the library
+* to include the entire library in your project, include "ConsosleVisuals.h"
+* below is a domonstration of how to use the Console Visuals library
+* the included files "alien_forground.txt", "alien_background.txt", and "alien_characters.txt" provide examples for how to set up files to be read into a sprite
+*/
 
 #include <iostream>
-#include "Sprite.h"
-#include "ThinPixel.h"
-#include "ThinSprite.h"
-#include "SmallSprite.h"
-#include "SpriteSheet.h"
+#include <conio.h>
+#include "ConsoleVisuals.h"
 
 int main()
 {
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
+    Sprite sprite = Sprite("alien_forground.txt", "alien_background.txt", "alien_characters.txt");
+    sprite.printAtLocation(20, 20);
+
+    SmallSprite smallSprite = SmallSprite("alien_forground.txt");
+    smallSprite.printAtLocation(60, 20);
+
     SpriteSheet s = SpriteSheet(3, 0, 0);
-    Sprite sprite = Sprite();
+    sprite = Sprite();
     s.addSprite(sprite);
     sprite = Sprite("alien_forground.txt");
     s.addSprite(sprite);
     sprite = Sprite("alien_background.txt");
     s.addSprite(sprite);
 
+    _getch();
     s.printSprite(0);
-    Sleep(1000);
+    _getch();
     s.printSprite(1);
-    Sleep(1000);
+    _getch();
     s.printSprite(2);
 
     SetConsoleTextAttribute(hConsole, 7);
@@ -36,11 +44,10 @@ int main()
 * Sprite = sprite consisting of an array of Pixels
 * ThinSprite = sprite consisting of an array of ThinPixels
 * SmallSprite = sprite printed as an array of character 219, uses regular pixels but only the forground color is considered
-* PositionSprite = wrapper that stores a pointer to sprite object and a set of coordinates, allows a sprite to be packeged with coordinates
 * 
 * SpriteSheet = an array of sprites that can be easily interchanged by a public method call
 * 
-* AnimatedSpriteSheet = a sprite sheet that is automatically animated in a seperate thread *stretch goal
+* AnimatedSpriteSheet = a sprite sheet that is automatically animated in a seperate thread *stretch goal* !not yet implimented!
 * 
 * 
 * COLORS:

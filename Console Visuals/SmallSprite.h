@@ -1,5 +1,9 @@
 #pragma once
 #include "Sprite.h"
+/*
+* represents a small sprite
+* uses character 219 to print two pixels on every character to create sprites that are a quarter of the screen space
+*/
 class SmallSprite : public Sprite
 {
 public:

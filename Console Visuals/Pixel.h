@@ -1,13 +1,15 @@
 #pragma once
 #include <windows.h>
 #include <iostream>
-
+/*
+* This class represents a pixel, which is part of a sprite
+*/
 class Pixel
 {
 protected:
-	char character_;
-	int frontColor_;
-	int backColor_;
+	char character_;//the character printed when this pixel is printed
+	int frontColor_;//the color of the character printed
+	int backColor_;//the color of the background behind the character
 
 	HANDLE hConsole_ = GetStdHandle(STD_OUTPUT_HANDLE);
 

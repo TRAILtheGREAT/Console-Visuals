@@ -1,5 +1,9 @@
 #pragma once
 #include "Pixel.h"
+/*
+* a version of the pixel class that will only print one copy of a character (instead of 2)
+* otherwise functions identically to a pixel
+*/
 class ThinPixel : public Pixel
 {
 public:
@@ -26,8 +30,3 @@ public:
 		std::cout << character_;
 	}
 };
-
-/*
-* a version of the pixel class that will only print one copy of a character (instead of 2)
-* otherwise functions identically to a pixel
-*/

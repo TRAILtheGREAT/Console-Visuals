@@ -1,5 +1,9 @@
 #pragma once
 #include "Sprite.h"
+/*
+* represents a sheet of sprites that can be easily interchanged
+* can also be used to store a sprite and a location in the same object
+*/
 class SpriteSheet
 {
 private:
@@ -45,6 +49,14 @@ public:
 	{
 		xPos_ = xPosition;
 		yPos_ = yPosition;
+	}
+	int getXPosition()
+	{
+		return xPos_;
+	}
+	int getYPosition()
+	{
+		return yPos_;
 	}
 
 	void addSprite(Sprite sprite)

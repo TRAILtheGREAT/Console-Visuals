@@ -142,6 +142,7 @@
     <ClCompile Include="Console Visuals.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ConsoleVisuals.h" />
     <ClInclude Include="Pixel.h" />
     <ClInclude Include="SmallSprite.h" />
     <ClInclude Include="Sprite.h" />

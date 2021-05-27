@@ -3,7 +3,9 @@
 #include <String>
 #include <iostream>
 #include <fstream>
-
+/*
+* represents a basic sprite
+*/
 class Sprite
 {
 protected:
@@ -73,7 +75,7 @@ public:
 				r++;
 			}
 		}
-
+		fileIn.close();
 	}
 	Sprite(std::string forgroundColorFile, std::string backgroundColorFile, std::string characterFile)
 	{
@@ -166,6 +168,7 @@ public:
 			}
 
 		}
+		fileIn.close();
 	}
 
 	virtual void printAtLocation(int horizontalLocation, int verticalLocation)

@@ -1,6 +1,11 @@
 #pragma once
 #include "Sprite.h"
 #include "ThinPixel.h"
+/*
+* a sprite that uses ThinPixels instead of Pixels.
+* prints single character pixels instead of two character pixels
+* useful if you want more control over your sprites
+*/
 class ThinSprite : public Sprite
 {
 public:
